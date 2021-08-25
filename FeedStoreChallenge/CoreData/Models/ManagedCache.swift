@@ -25,7 +25,7 @@ internal class ManagedCache: NSManagedObject {
 		return try context.fetch(request).first
 	}
 
-	internal static func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedCache {
+	static func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedCache {
 		try find(in: context).map(context.delete)
 		return ManagedCache(context: context)
 	}
